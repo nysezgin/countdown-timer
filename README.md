@@ -2,6 +2,8 @@
 
 This is a project I did for coding practice.
 
+A basic countdown timer.
+
 # Attribution
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

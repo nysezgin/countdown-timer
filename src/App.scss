@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
+//// Mixins
+@mixin tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
 //// General
 
 html {
@@ -6,4 +21,72 @@ html {
 
 body {
   min-height: 100%;
+  background-color: hsl(235, 16%, 14%);
+  background-image: url("./images/pattern-hills.svg"), url("./images/bg-stars.svg");
+  background-repeat: no-repeat;
+  background-size: 768px 150px, contain;
+  background-position: bottom, center;
+  @include tablet {
+    background-size: contain;
+  }
+}
+
+//// App Wrapper
+
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 120px;
+  width: 90%;
+  text-transform: uppercase;
+  font-family: 'Red Hat Text', sans-serif;
+  font-weight: 700;
+}
+
+.title {
+  color: white;
+  margin-bottom: 50px;
+  font-size: 1.2rem;
+  letter-spacing: 5px;
+  @include desktop {
+    letter-spacing: 10px;
+    font-size: 2rem;
+  }
+}
+
+//// Timer
+
+.timer-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+}
+
+.timer__counter {
+  color: hsl(345, 95%, 68%);
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  background-color: hsl(236, 21%, 26%);
+  padding: 8px 5px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  @include desktop {
+    padding: 15px 10px;
+    font-size: 5rem;
+  }
+}
+
+.timer__type {
+  margin-top: 10px;
+  color: hsl(237, 18%, 59%);
+  font-size: 0.5rem;
+  letter-spacing: 1px;
+  @include desktop {
+  margin-top: 15px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
 }
